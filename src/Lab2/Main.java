@@ -1,4 +1,4 @@
-//1.Forme geometrice
+package Lab2;//1.Forme geometrice
 
 class Form {
     private String color;
@@ -15,7 +15,7 @@ class Triangle extends Form {
     public Triangle() { super(); this.height = 0; this.base = 0; }
     public Triangle(String color, float height, float base) { super(color); this.height = height; this.base = base; }
     public float getArea() { return (base * height) / 2; }
-    public String toString() { return super.toString() + " (Triangle)"; }
+    public String toString() { return super.toString() + " (Lab2.Triangle)"; }
     public boolean equals(Object obj) {
         if (this == obj) return true;
         if (obj == null || getClass() != obj.getClass()) return false;
@@ -30,7 +30,7 @@ class Circle extends Form {
     public Circle() { super(); this.radius = 0; }
     public Circle(String color, float radius) { super(color); this.radius = radius; }
     public float getArea() { return (float) (Math.PI * radius * radius); }
-    public String toString() { return super.toString() + " (Circle)"; }
+    public String toString() { return super.toString() + " (Lab2.Circle)"; }
 }
 
 class Square extends Form {
@@ -39,7 +39,7 @@ class Square extends Form {
     public Square() { super(); this.side = 0; }
     public Square(String color, float side) { super(color); this.side = side; }
     public float getArea() { return side * side; }
-    public String toString() { return super.toString() + " (Square)"; }
+    public String toString() { return super.toString() + " (Lab2.Square)"; }
 }
 
  class application {
