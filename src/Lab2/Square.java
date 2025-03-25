@@ -7,4 +7,4 @@ class Square extends Form {
     public Square(String color, float side) { super(color); this.side = side; }
     public float getArea() { return side * side; }
     public String toString() { return super.toString() + " (Lab2.Square)"; }
-}
+}//

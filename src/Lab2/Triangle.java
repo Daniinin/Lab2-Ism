@@ -12,5 +12,5 @@ class Triangle extends Form {
         Triangle t = (Triangle) obj;
         return Float.compare(t.height, height) == 0 && Float.compare(t.base, base) == 0;
     }
-}
+}//
 

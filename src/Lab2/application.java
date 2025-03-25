@@ -13,6 +13,6 @@ class application {
         System.out.println(s1 + " - Area: " + s1.getArea());
         System.out.println("t1 equals t2: " + t1.equals(t2));
     }
-}
+}//
 
 
