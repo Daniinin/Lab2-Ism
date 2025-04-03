@@ -1,36 +1,38 @@
 package Lab5;
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.List;
-import java.util.Scanner;
+import java.io.*;
+
 public class Application {
     public static void main(String[] args) {
-        try {
-            printSmallTextFile("infile.txt");
-            System.out.println("\n\n");
-            printLargerTextFile("infile.txt");
+        String inputFile = "in.txt";
+        String outputFile = "out.txt";
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(inputFile));
+             BufferedWriter writer = new BufferedWriter(new FileWriter(outputFile))) {
+
+            String line;
+            while ((line = reader.readLine()) != null) {
+                // a) Adăugăm un newline după fiecare linie
+                writer.write(line + "\n\n");
+                System.out.println(line + "\n");
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-    static void printSmallTextFile(String fileName) throws IOException {
-        System.out.println("Using Files.readAllLines:");
-        Path path = Paths.get(fileName);
-        List<String> allLinesInMemory = Files.readAllLines(path);
-        for(String line: allLinesInMemory) {
-            System.out.println(": " +line);
-        }
-    }
-    static void printLargerTextFile(String fileName) throws IOException {
-        System.out.println("Using Scanner:");
-        Path path = Paths.get(fileName);
-        try (Scanner scanner = new Scanner(path)){
-            while (scanner.hasNextLine()){
-                System.out.println(": " + scanner.nextLine());
+
+        // Reîncepem citirea fișierului pentru partea b
+        try (BufferedReader reader = new BufferedReader(new FileReader(inputFile));
+             BufferedWriter writer = new BufferedWriter(new FileWriter(outputFile, true))) { // true pentru append
+
+            String line;
+            while ((line = reader.readLine()) != null) {
+                // b) Adăugăm un newline după fiecare caracter punct
+                line = line.replace(".", ".\n");
+                writer.write(line + "\n");
+                System.out.println(line);
             }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }
