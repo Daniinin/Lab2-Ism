@@ -1,20 +1,18 @@
 package Lab6;
 
-abstract class ACalculator<T extends Number> {
-    protected T state;
+abstract class ACalculator {
+    protected Object state; // Va reprezenta starea internă a calculatorului
 
-    public ACalculator(T initialValue) {
-        this.state = initialValue;
-    }
-
-    public abstract ACalculator<T> init(T value);
-
-    public T result() {
+    // Metodă pentru a obține rezultatul
+    public Object result() {
         return state;
     }
 
-    public ACalculator<T> clear() {
-        this.state = null;
-        return this;
+    // Metodă pentru a reseta starea
+    public void clear() {
+        state = null;
     }
+
+    // Metodă abstractă care trebuie implementată în subclase
+    public abstract void init();
 }
